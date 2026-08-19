@@ -3,9 +3,9 @@
     --primary-admin-color:  #080074;
     --secondary-admin-color: #4160c5;
     --secondary-dark-admin-color: #111955;
-    --secondary-bg-slim-admin-color: #f0e4d6;
-    --secondary-bg-light-admin-color: #EFE9E3;
-    --secondary-bg-medium-admin-color: #EEE1D4;
+    --secondary-bg-slim-admin-color: #d9dbf1;
+    --secondary-bg-light-admin-color: #e3e4ef;
+    --secondary-bg-medium-admin-color: #d4daee;
     --white-admin-color: #ffffff;
     --black-admin-color: #3C464C;
     --grey-admin-color: #ECECEC;
@@ -691,7 +691,7 @@ label {
         .sidebar .nav > .nav-item a[data-toggle=collapse][aria-expanded=true]:before, .sidebar[data-background-color="white"] .nav > .nav-item a[data-toggle=collapse][aria-expanded=true]:before {
           background: var(--primary-admin-color); }
     .sidebar .nav.nav-primary > .nav-item a:hover i, .sidebar .nav.nav-primary > .nav-item a:focus i, .sidebar .nav.nav-primary > .nav-item a[data-toggle=collapse][aria-expanded=true] i, .sidebar[data-background-color="white"] .nav.nav-primary > .nav-item a:hover i, .sidebar[data-background-color="white"] .nav.nav-primary > .nav-item a:focus i, .sidebar[data-background-color="white"] .nav.nav-primary > .nav-item a[data-toggle=collapse][aria-expanded=true] i {
-      color: #1572E8 !important; }
+      color: #1572E8; }
     .sidebar .nav.nav-primary > .nav-item a[data-toggle=collapse][aria-expanded=true]:before, .sidebar[data-background-color="white"] .nav.nav-primary > .nav-item a[data-toggle=collapse][aria-expanded=true]:before {
       background: #1572E8 !important; }
     .sidebar .nav.nav-primary > .nav-item.active a:before, .sidebar[data-background-color="white"] .nav.nav-primary > .nav-item.active a:before {
@@ -1340,6 +1340,12 @@ label {
   border: none;
   border-radius: 5%;
   background-color: rgba(12, 159, 176, 0.2);
+}
+
+/* TC Card */
+#tcDashboard .tcCard:hover {
+  border: 1px solid var(--secondary-admin-color);
+  background-color: var(--secondary-bg-light-admin-color);
 }
 
 /*     Card Task     */
