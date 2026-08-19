@@ -349,7 +349,7 @@ $('.show-password').on('click', function(){
 })
 
 $(document).ready(function() {
-	var currentPage = window.location.pathname.split('/').pop().split('?')[0];
+	var currentPage = window.location.pathname;
 
 	$('.sidebar ul li').each(function () {
 		var $li = $(this);
