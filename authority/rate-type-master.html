@@ -1,0 +1,127 @@
+{% extends 'baseAuthority.html' %}
+{% load static %}
+
+{% block title %}ATMS Rate Type Master{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Rate Type List</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-home">
+          <span class="op-7">ADV Setup</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Rate Type List</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header d-print-none text-start">
+            <a href="{% url 'rate-type' %}"><button class="btn btn-primary btn-sm"><strong><i class="ri-add-line"></i> Add New</strong></button></a>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="basic-datatables" class="display table table-hover table-bordered table-head-bg-info">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Area Name</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>B-2 Bypass Road From Balaji More In Malviya Nagar Via Ep Square To New Sanganer Road At Aggarwal Farm</td>
+                    <td>
+                      <a href="{% url 'rate-type-view' %}"><button class="btn btn-info btn-sm my-1">View</button></a>
+                      <a href="{% url 'rate-type' %}"><button class="btn btn-success btn-sm">Edit</button></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Malviya Nagar Entire Area</td>
+                    <td>
+                      <a href="{% url 'rate-type-view' %}"><button class="btn btn-info btn-sm my-1">View</button></a>
+                      <a href="{% url 'rate-type' %}"><button class="btn btn-success btn-sm">Edit</button></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>RajaPark Entire Area</td>
+                    <td>
+                      <a href="{% url 'rate-type-view' %}"><button class="btn btn-info btn-sm my-1">View</button></a>
+                      <a href="{% url 'rate-type' %}"><button class="btn btn-success btn-sm">Edit</button></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
+
+        $("#multi-filter-select").DataTable({
+          pageLength: 10,
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $(
+                  '<select class="form-select"><option value=""></option></select>'
+                )
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
+
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
+
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 10,
+        });
+  });
+</script>
+{% endblock %}

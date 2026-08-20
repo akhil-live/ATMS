@@ -1,0 +1,130 @@
+{% extends 'baseAuthority.html' %}
+{% load static %}
+
+{% block title %}ATMS Rate Type View{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Rate Type View</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-home">
+          <span class="op-7">ADV Setup</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'rate-type-master' %}">
+            Rate Type List
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Rate Type View</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header d-print-none">
+              <a href="{% url 'rate-type-master' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i></i> Back</strong></button></a>
+
+            <div class="form-group mt-1">
+
+              <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-6">
+                    <label for="areaName">Area Name<i class="ri-asterisk"></i></label>
+                    <input type="text" id="areaName" class="form-control" value="B-2 Bypass Road From Balaji More In Malviya Nagar Via Ep Square To New Sanganer Road At Aggarwal Farm" disabled>                     
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6">
+                    <label for="parentArea">Parent Area Id<i class="ri-asterisk"></i></label>
+                      <select class="form-select" id="parentArea" name="parentArea" disabled>
+                        <option value="B-2 Bypass Road">B-2 Bypass Road</option>
+                      </select>                      
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6">
+                    <label for="wardNo">Ward No.<i class="ri-asterisk"></i></label>
+                      <select class="form-select" id="wardNo" name="wardNo" disabled>
+                        <option value="1">1</option>
+                      </select>                      
+                  </div>
+              </div>
+            
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive" id="printableArea">
+              <table class="display table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center" style="background: #faebd7;"><strong>Year</strong></th>
+                    <th class="text-center" style="background: #afd7e4;"><strong>Rate</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center">
+                    <td>2007</td>
+                    <td><input type="number" value="2000.00" readonly></td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>2008</td>
+                    <td><input type="number" value="2100.00" readonly></td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>2009</td>
+                    <td><input type="number" value=""></td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>2010</td>
+                    <td><input type="number" value=""></td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>2011</td>
+                    <td><input type="number" value=""></td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>2012</td>
+                    <td><input type="number" value=""></td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>2013</td>
+                    <td><input type="number" value=""></td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>2014</td>
+                    <td><input type="number" value=""></td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>2015</td>
+                    <td><input type="number" value=""></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="d-print-none">
+                <p class="text-start">
+                    <button type="submit" class="btn btn-success btn-sm" name="submit" id="updateAreaRate"><strong>Update</strong></button>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
