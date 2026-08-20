@@ -1332,14 +1332,14 @@ label {
 .card-stats .card-body h5 strong {
   padding: 4px 10px;
   border-left: 3px solid var(--primary-admin-color);
-  background: #f3ffff;
-  box-shadow: 2px 6px 15px 0px rgba(65, 78, 78, 0.1);
+  background: #f3f5ff;
+  box-shadow: 2px 6px 15px 0px rgba(65, 66, 78, 0.1);
 }
 
 .card-stats .homeCard:hover {
   border: none;
   border-radius: 5%;
-  background-color: rgba(12, 159, 176, 0.2);
+  background-color: rgba(12, 50, 176, 0.2);
 }
 
 /* TC Card */
