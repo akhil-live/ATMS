@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertisement Geo Tagging</title>
+    <link rel="shortcut icon" href="static/images/logo/favicon.png" type="image/png"/>
+    <link href="static/fonts/noto-sans-v42-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="static/remixicon/remixicon.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/admin.css">
+    <link rel="stylesheet" href="static/css/adminresponsive.css">
+
+    <style>
+        body { font-family: 'Noto sans', sans-serif; }
+
+        .nav-item.show > a {
+          background-color: #080074;
+          color: #fff;
+        }
+
+        .nav-item > a.active {
+          font-weight: 600;
+        }
+        @font-face {
+            font-family: "remixicon";
+            src: url('static/remixicon/remixicon.woff2') format("woff2");
+            font-display: swap;
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 300;
+            src: url('static/fonts/noto-sans-v42-latin-300.woff2') format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('static/fonts/noto-sans-v42-latin-regular.woff2') format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url('static/fonts/noto-sans-v42-latin-italic.woff2') format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 500;
+            src: url('static/fonts/noto-sans-v42-latin-500.woff2') format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: url('static/fonts/noto-sans-v42-latin-600.woff2') format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url('static/fonts/noto-sans-v42-latin-700.woff2') format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 800;
+            src: url('static/fonts/noto-sans-v42-latin-800.woff2') format('woff2'); 
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="white">
+        <div class="sidebar-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="inky">
+            <a href="dashboard.html" class="logo">
+              <img src="static/images/logo/logo.png" alt="navbar brand" class="navbar-brand" height="44"/>
+              <h4 style="color: white; padding: 6px 0 0 8px; font-size: 1rem;"><strong>Adv Tax System</strong></h4>
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
+              </button>
+            </div>
+            <button class="topbar-toggler more">
+              <i class="gg-more-vertical-alt"></i>
+            </button>
+          </div>
+          <!-- End Logo Header -->
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+              <li class="nav-item">
+                <a href="dashboard.html">
+                  <i class="ri-home-3-line"></i>
+                  <p>Home</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#survey">
+                  <i class="ri-survey-line"></i>
+                  <p>Survey</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="survey">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="survey.html">
+                        <span class="sub-item">Survay Dashboard</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="survey-form.html">
+                        <span class="sub-item">Survay Form</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Geo-Tagging</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Survay Report</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Survey Visit Report</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Geo-Tagging Update</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Search Survey</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="#">
+                  <i class="ri-artboard-line"></i>
+                  <p>Search Advertisement</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#updateAdv">
+                  <i class="ri-file-edit-line"></i>
+                  <p>Update Advertisement</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="updateAdv">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Pay Dashboard</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Update Ward</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Search Demand</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
+
+      <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="inky">
+              <a href="dashboard.html" class="logo">
+                <img src="static/images/logo/logo.png" alt="navbar brand" class="navbar-brand" height="20"/>
+                <h6 style="color: white; padding: 6px 0 0 8px;"><strong>Adv Tax System</strong></h6>
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                  <i class="gg-menu-right"></i>
+                </button>
+                <button class="btn btn-toggle sidenav-toggler">
+                  <i class="gg-menu-left"></i>
+                </button>
+              </div>
+              <button class="topbar-toggler more">
+                <i class="gg-more-vertical-alt"></i>
+              </button>
+            </div>
+            <!-- End Logo Header -->
+          </div>
+          <!-- Navbar Header -->
+          <nav
+            class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
+          >
+            <div class="container-fluid">
+              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link" href="dashboard.html">
+                    <i class="ri-home-3-line" style="font-size: 20px;"></i>
+                  </a>
+                </li>
+                <li class="nav-item topbar-user dropdown hidden-caret">
+                  <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false" >
+                    <div class="avatar-sm">
+                      <img src="static/images/profile/user.png" alt="profile" class="avatar-img rounded-circle" />
+                    </div>
+                    <span class="profile-username">
+                      <span class="op-7"></span>
+                      <span class="fw-bold">Admin Name</span>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user animated fadeIn">
+                    <div class="dropdown-user-scroll scrollbar-outer">
+                      <li>
+                        <div class="user-box">
+                          <div class="avatar-lg">
+                            <img src="static/images/profile/user.png" alt="image profile" class="avatar-img rounded" />
+                          </div>
+                          <div class="u-text">
+                            <h4>Admin Name</h4>
+                            <p class="text-muted">Employee id</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">My Profile</a>
+                        <a class="dropdown-item" href="change-password.html">Change Password</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a class="nav-link" href="#">
+                    <i class="ri-logout-box-r-line" style="font-size: 20px;"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- End Navbar -->
+        </div>
+
+        <div class="container">
+          <div class="page-inner">
+            <div class="page-header d-print-none">
+              <h4 class="fw-bold mb-3">Advertisement Geo-Tagging</h4>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-stats card-round">
+                  <div class="card-body">
+                    <div class="row">
+                      <h5 class="pb-1"><strong>Basic Details</strong></h5>
+                      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                        <div class="form-group">
+                          <label for="serviceNo">Service No.</label>
+                          <p class="fw-bold">None</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p style="padding:5px 0px 0px 15px" class="text-danger text-start">OR</p>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                        <div class="form-group">
+                          <label for="surveyNo">Survey No.</label>
+                          <p class="fw-bold">512345</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <h5 class="pt-2"><strong>Firm Area Details</strong></h5>
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                        <div class="form-group">
+                          <label for="wardNo">Ward No.<i class="ri-asterisk"></i></label>
+                          <p class="fw-bold">2</p>
+                        </div>                       
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                        <div class="form-group">
+                          <label for="shopArea">Shop Area (in Sq.ft)<i class="ri-asterisk"></i></label>
+                          <p class="fw-bold">1200</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <h5 class="pt-2"><strong>Firm Details</strong></h5>
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                        <div class="form-group">
+                          <label for="firmName">Firm Name<i class="ri-asterisk"></i></label>
+                          <p class="fw-bold">ABC Enterprise</p>
+                        </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                        <div class="form-group">
+                          <label for="mobile">Mobile No.<i class="ri-asterisk"></i></label>
+                          <p class="fw-bold">9876543210</p>
+                        </div>
+                      </div>                      
+                    </div>
+                    <div class="row">
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                          <label for="firmAddress">Firm Address<i class="ri-asterisk"></i></label>
+                          <p class="fw-bold">Shop No. 21, Jan Path, near SBI Bank, Malviya Nagar, Jaipur</p>
+                        </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                        <div class="form-group">
+                          <label for="pincode">Pin Code<i class="ri-asterisk"></i></label>
+                          <p class="fw-bold">302001</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h5 class="pt-2"><strong>Advertisement Details</strong></h5>
+                        <div class="table-responsive">
+                          <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                            <thead>
+                              <tr class="text-center">
+                                <th>Board Type</th>
+                                <th>Hoarding Type</th>
+                                <th>Store Code</th>
+                                <th>Location</th>
+                                <th>Length (in Ft.)</th>
+                                <th>Breadth (in Ft.)</th>
+                                <th>Financial Year</th>
+                                <th>Rate Type</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="text-center">
+                                <td>3D Letter Boards</td>
+                                <td>Backlit/Frontlit Hoardings</td>
+                                <td>ST/01/21</td>
+                                <td>Jan Path, near SBI Bank, Malviya Nagar</td>
+                                <td>50</td>
+                                <td>20</td>
+                                <td>2025-2026</td>
+                                <td>Flat Rate</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <h5 class="py-2"><strong>Geotagging</strong></h5>
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="form-group">
+                          <label for="latitude">Latitude</label>
+                           <input type="text" id="latitude" name="latitude" class="form-control" placeholder="Enter latitude">
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="form-group">
+                          <label for="longitude">Longitude</label>
+                          <input type="text" id="longitude" name="longitude" class="form-control" placeholder=" Enter longitude">
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                        <div class="form-group">
+                          <label for="frontImage">Front Image</label>
+                          <input type="file" class="form-control mb-3" id="frontImage" name="frontImage" />
+                          <a href="javascript:void(0);" onclick="openModal('image', 'upload/images/propimage.jpg')"><img width='200px' src='static/images/documents/sample_image.jpg'/></a>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                        <div class="form-group">
+                          <label for="leftImage">Left Image</label>
+                          <input type="file" class="form-control mb-3" id="leftImage" name="leftImage" />
+                          <a href="javascript:void(0);" onclick="openModal('image', 'upload/images/propimage.jpg')"><img width='200px' src='static/images/documents/sample_image.jpg'/></a>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                        <div class="form-group">
+                          <label for="rightImage">Right Image</label>
+                          <input type="file" class="form-control mb-3" id="rightImage" name="rightImage" />
+                          <a href="javascript:void(0);" onclick="openModal('image', 'upload/images/propimage.jpg')"><img width='200px' src='static/images/documents/sample_image.jpg'/></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-print-none">
+                        <p class="text-center pt-2">
+                          <button type="submit" class="btn btn-success btn-sm" name="submit"><strong>Submit</strong></button>
+                        </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- footer start -->
+        <footer class="footer">
+          <div class="container-fluid d-flex justify-content-between">
+            <div class="copyright">
+              <small class="fw-normal op-7">© Copyright</small>
+            </div>
+          </div>
+        </footer>
+        <!-- footer end -->
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.min.js" integrity="sha512-5AcaBUUUU/lxSEeEcruOIghqABnXF8TWqdIDXBZ2SNEtrTGvD408W/ShtKZf0JNjQUfOiRBJP+yHk6Ab2eFw3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="static/js/datatables/datatables.min.js"></script>
+    <script src="static/js/sweetalert/sweetalert.min.js"></script>
+    <script src="static/js/admin.js"></script>
+</body>
+</html>
