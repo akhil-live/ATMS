@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}ATMS Survey Dashboad{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-2">
+      <div class="page-header">
+        <h4 class="fw-bold mb-3">Advertisement Survey Dashboad</h4>
+        <ul class="breadcrumbs mb-3">
+          <li class="nav-home">
+            <a href="{% url 'dashboard' %}">
+              <i class="ri-home-3-line"></i>
+            </a>
+          </li>
+          <li class="separator">
+            <i class="ri-arrow-right-s-line"></i>
+          </li>
+          <li class="nav-home">
+            <span class="op-7">Survey</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row" id="tcDashboard">
+      <div class="col-sm-12 col-md-12">
+        <div class="card card-stats card-round">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6 col-md-4 col-lg-4">
+                <div class="card card-stats card-round tcCard">
+                  <a href="{% url 'adv-survey-form' %}">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-icon">
+                            <div class="icon-big text-center icon-primary bubble-shadow-small">
+                              <i class="ri-survey-line"></i>
+                            </div>
+                        </div>
+                        <div class="col col-stats ms-3 ms-sm-0">
+                          <div class="numbers">
+                            <h4 class="card-title">Survey Form</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-4">
+                <div class="card card-stats card-round tcCard">
+                  <a href="{% url 'search-adv-survey' %}">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-icon">
+                            <div class="icon-big text-center icon-primary bubble-shadow-small">
+                              <i class="ri-map-pin-range-line"></i>
+                            </div>
+                        </div>
+                        <div class="col col-stats ms-3 ms-sm-0">
+                          <div class="numbers">
+                            <h4 class="card-title">Geo-Tagging</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-4">
+                <div class="card card-stats card-round tcCard">
+                  <a href="{% url 'survey-adv-report' %}">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-icon">
+                            <div class="icon-big text-center icon-primary bubble-shadow-small">
+                              <i class="ri-file-list-3-line"></i>
+                            </div>
+                        </div>
+                        <div class="col col-stats ms-3 ms-sm-0">
+                          <div class="numbers">
+                            <h4 class="card-title">Survey Report</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-4">
+                <div class="card card-stats card-round tcCard">
+                  <a href="{% url 'search-adv-survey-tc-visit' %}">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-icon">
+                            <div class="icon-big text-center icon-primary bubble-shadow-small">
+                              <i class="ri-file-check-line"></i>
+                            </div>
+                        </div>
+                        <div class="col col-stats ms-3 ms-sm-0">
+                          <div class="numbers">
+                            <h4 class="card-title">Survey Visit Report</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-4">
+                <div class="card card-stats card-round tcCard">
+                  <a href="{% url 'search-adv-geotagging' %}">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-icon">
+                            <div class="icon-big text-center icon-primary bubble-shadow-small">
+                              <i class="ri-map-pin-range-fill"></i>
+                            </div>
+                        </div>
+                        <div class="col col-stats ms-3 ms-sm-0">
+                          <div class="numbers">
+                            <h4 class="card-title">Geo-Tagging Update</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-4">
+                <div class="card card-stats card-round tcCard">
+                  <a href="{% url 'search-adv-survey' %}">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-icon">
+                            <div class="icon-big text-center icon-primary bubble-shadow-small">
+                              <i class="ri-file-search-line"></i>
+                            </div>
+                        </div>
+                        <div class="col col-stats ms-3 ms-sm-0">
+                          <div class="numbers">
+                            <h4 class="card-title">Search Survey</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+                            
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+{% endblock %}

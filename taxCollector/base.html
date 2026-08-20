@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            Advertisement Tax Management System
+        {% endblock %}
+    </title>
+    <link rel="shortcut icon" href="{% static 'images/logo/favicon.png' %}" type="image/png"/>
+    <link href="{% static 'fonts/noto-sans-v42-latin-regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{% static 'remixicon/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/adminresponsive.css' %}">
+
+
+    <style>
+        body { font-family: 'Noto sans', sans-serif; }
+        .nav-item.show > a {
+            background-color: #080074;
+            color: #fff;
+        }
+        .nav-item > a.active {
+            font-weight: 600;
+        }
+        @font-face {
+            font-family: "remixicon";
+            src: url("{% static 'remixicon/remixicon.woff2' %}") format("woff2");
+            font-display: swap;
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 300;
+            src: url("{% static 'fonts/noto-sans-v42-latin-300.woff2' %}") format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url("{% static 'fonts/noto-sans-v42-latin-regular.woff2' %}") format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url("{% static 'fonts/noto-sans-v42-latin-italic.woff2' %}") format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 500;
+            src: url("{% static 'fonts/noto-sans-v42-latin-500.woff2' %}") format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: url("{% static 'fonts/noto-sans-v42-latin-600.woff2' %}") format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url("{% static 'fonts/noto-sans-v42-latin-700.woff2' %}") format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 800;
+            src: url("{% static 'fonts/noto-sans-v42-latin-800.woff2' %}") format('woff2'); 
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="white">
+        <div class="sidebar-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="inky">
+            <a href="{% url 'dashboard' %}" class="logo">
+              <img src="{% static 'images/logo/logo.png' %}" alt="navbar brand" class="navbar-brand" height="44"/>
+              <h4 style="color: white; padding: 6px 0 0 6px;"><strong>Adv Tax System</strong></h4>
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
+              </button>
+            </div>
+            <button class="topbar-toggler more">
+              <i class="gg-more-vertical-alt"></i>
+            </button>
+          </div>
+          <!-- End Logo Header -->
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+              <li class="nav-item">
+                <a href="{% url 'dashboard' %}">
+                  <i class="ri-home-3-line"></i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#survey">
+                  <i class="ri-survey-line"></i>
+                  <p>Survey</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="survey">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'survey' %}">
+                        <span class="sub-item">Survay Dashboard</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'adv-survey-form' %}">
+                        <span class="sub-item">Survay Form</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Geo-Tagging</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Survay Report</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Survey Visit Report</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Geo-Tagging Update</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Search Survey</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="#">
+                  <i class="ri-artboard-line"></i>
+                  <p>Search Advertisement</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#updateAdv">
+                  <i class="ri-file-edit-line"></i>
+                  <p>Update Advertisement</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="updateAdv">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Pay Dashboard</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Update Ward</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Search Demand</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
+
+      <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="inky">
+              <a href="{% url 'dashboard' %}" class="logo">
+                <img src="{% static 'images/logo/logo.png' %}" alt="navbar brand" class="navbar-brand" height="20"/>
+                <h6 style="color: white; padding: 6px 0 0 8px;"><strong>Adv Tax System</strong></h6>
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                  <i class="gg-menu-right"></i>
+                </button>
+                <button class="btn btn-toggle sidenav-toggler">
+                  <i class="gg-menu-left"></i>
+                </button>
+              </div>
+              <button class="topbar-toggler more">
+                <i class="gg-more-vertical-alt"></i>
+              </button>
+            </div>
+            <!-- End Logo Header -->
+          </div>
+          <!-- Navbar Header -->
+          <nav
+            class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
+          >
+            <div class="container-fluid" title="Dashboard">
+              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                    <a class="nav-link" href="{% url 'dashboard' %}">
+                      <i class="ri-home-3-line" style="font-size: 20px;"></i>
+                    </a>
+                </li>
+                <li class="nav-item topbar-user dropdown hidden-caret" title="User">
+                  <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false" >
+                    <div class="avatar-sm">
+                      <img src="{% static 'images/profile/user.png' %}" alt="profile" class="avatar-img rounded-circle" />
+                    </div>
+                    <span class="profile-username">
+                      <span class="op-7"></span>
+                      <span class="fw-bold">Employee Name</span>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user animated fadeIn">
+                    <div class="dropdown-user-scroll scrollbar-outer">
+                      <li>
+                        <div class="user-box">
+                          <div class="avatar-lg">
+                            <img src="{% static 'images/profile/user.png' %}" alt="image profile" class="avatar-img rounded" />
+                          </div>
+                          <div class="u-text">
+                            <h4>Employee Name</h4>
+                            <p class="text-muted">Employee id</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'my-profile' %}">My Profile</a>
+                        <a class="dropdown-item" href="{% url 'change-password' %}">Change Password</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret" title="Logout">
+                  <a class="nav-link" href="#">
+                    <i class="ri-logout-box-r-line" style="font-size: 20px;"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- End Navbar -->
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+        <!-- footer start -->
+        <footer class="footer">
+          <div class="container-fluid d-flex justify-content-between">
+            <div class="copyright">
+              <a href="#" target="_blank">© Copyright</a>
+            </div>
+          </div>
+        </footer>
+        <!-- footer end -->
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.min.js" integrity="sha512-5AcaBUUUU/lxSEeEcruOIghqABnXF8TWqdIDXBZ2SNEtrTGvD408W/ShtKZf0JNjQUfOiRBJP+yHk6Ab2eFw3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'js/datatables/datatables.min.js' %}"></script>
+    <script src="{% static 'js/sweetalert/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/admin.js' %}"></script>
+    {% block extra_js %}
+    {% endblock %}
+</body>
+</html>
