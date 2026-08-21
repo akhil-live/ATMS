@@ -1,0 +1,58 @@
+{% extends 'baseAuthority.html' %}
+{% load static %}
+
+{% block title %}ATMS Document View{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Document View</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-home">
+          <span class="op-7">ADV Setup</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'document-master' %}">
+            Document Master
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Document View</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header d-print-none text-start">
+            <a href="{% url 'document-master' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i></i> Back</strong></button></a>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="documentName">Document Name<i class="ri-asterisk"></i></label>
+                   <input type="text" id="documentName" name="documentName" class="form-control" placeholder="Enter document name" value="Aadhaar Card" required disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
