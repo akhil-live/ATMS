@@ -1,0 +1,173 @@
+{% extends 'baseAuthority.html' %}
+{% load static %}
+
+{% block title %}ATMS Survey Sentbox{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-2">
+      <div class="page-header">
+        <h4 class="fw-bold mb-3">Survey Sentbox</h4>
+        <ul class="breadcrumbs mb-3">
+          <li class="nav-home">
+            <a href="{% url 'dashboard' %}">
+              <i class="ri-home-3-line"></i>
+            </a>
+          </li>
+          <li class="separator">
+            <i class="ri-arrow-right-s-line"></i>
+          </li>
+          <li class="nav-home">
+            <span class="op-7">Survey Mail</span>
+          </li>
+          <li class="separator">
+            <i class="ri-arrow-right-s-line"></i>
+          </li>
+          <li class="nav-item">
+            <span class="op-7">Survey Sentbox</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header d-print-none">
+              <div class="row">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                    <div class="form-group">
+                      <label for="startDate">Start Date<i class="ri-asterisk"></i></label>
+                      <input type="date" class="form-control" id="startDate" name="startDate" value="2026-08-23" required>
+                    </div>              
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                    <div class="form-group">
+                      <label for="endDate">End Date<i class="ri-asterisk"></i></label>
+                      <input type="date" class="form-control" id="endDate" name="endDate" value="2026-08-24" required>
+                    </div>              
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                    <div class="form-group">
+                      <label for="wardNo">Ward No.<i class="ri-asterisk"></i></label>
+                        <select class="form-select" id="wardNo" name="wardNo" required>
+                          <option value="">All</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>    
+                    </div>            
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                    <div class="form-group">
+                      <label for="searchAnyKey">Search Any Key</label>
+                      <input type="text" class="form-control" id="searchAnyKey" name="searchAnyKey" value=""> 
+                    </div>            
+                  </div>
+              </div>
+              <div class="col-12 py-3 text-center">
+                  <button type="submit" class="btn btn-primary btn-sm" name="submit" id="orSearch"><i class="fa fa-search"></i> Search</button>
+              </div>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive" id="printableArea">
+                  <div class="d-print-none">
+                    <p class="text-start">
+                        <button type="submit" class="btn btn-success btn-sm" name="submit" id="exportExcel" onclick="exportExcel()"><strong><i class="ri-file-excel-line"></i> Export Excel</strong></button>
+                    </p>
+                  </div>
+              <table id="basic-datatables" class="display table table-hover table-bordered table-head-bg-light">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Ward No.</th>
+                    <th>Consumer No.</th>
+                    <th>Firm Name</th>
+                    <th>Mobile No.</th>
+                    <th>Apply Date</th>
+                    <th>Sender</th>
+                    <th>Sender Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>10</td>
+                    <td>ADV512345</td>
+                    <td>ABC Enterprise</td>
+                    <td>9875643210</td>
+                    <td>June 10, 2026</td>
+                    <td>Gaurav Goyal</td>
+                    <td>Sept 20, 2026, 2:11 p.m.</td>
+                    <td><a href="{% url 'survey-level-details' %}"><button class="btn btn-info btn-xs">View</button></a></td>
+                  </tr>                          
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
+
+        $("#multi-filter-select").DataTable({
+          pageLength: 10,
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $(
+                  '<select class="form-select"><option value=""></option></select>'
+                )
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
+
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
+
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 10,
+        });
+  });
+
+    function exportExcel() {
+        let table = $('#basic-datatables').DataTable();
+        let data = table.rows({ search: 'applied' }).data().toArray();
+        let ws = XLSX.utils.aoa_to_sheet([
+            table.columns().header().toArray().map(th => th.innerText),
+            ...data
+        ]);
+        let wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+        XLSX.writeFile(wb, "data.xlsx");
+    }
+</script>
+{% endblock %}

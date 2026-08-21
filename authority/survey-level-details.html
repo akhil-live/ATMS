@@ -1,0 +1,489 @@
+{% extends 'baseAuthority.html' %}
+{% load static %}
+
+{% block title %}ATMS Survey Details{% endblock %}
+
+{% block content %}
+<div class="modal fade" id="fileModal" tabindex="-1" >
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">File Preview</h5>
+
+        <div class="btn-group me-2 ms-2">
+          <button id="fullscreenBtn" class="btn btn-sm btn-outline-primary d-none" onclick="toggleFullscreen()">
+            <i class="ri-fullscreen-line"></i>
+          </button>
+        </div>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div id="zoomControls" class="mb-2 text-center d-none">
+          <button class="btn btn-sm btn-info" onclick="zoomIn()"><i class="ri-add-line"></i></button>
+          <button class="btn btn-sm btn-info" onclick="zoomOut()"><i class="ri-subtract-line"></i></button>
+          <button class="btn btn-sm btn-secondary" onclick="resetZoom()">Reset</button>
+        </div>
+
+        <div id="fileContainer"
+            style="width:100%; height:75vh; max-height:calc(100vh - 160px); overflow:auto; text-align:center;">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Survey Details</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+            <a href="{% url 'survey-inbox' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back to Inbox</strong></button></a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <h5 class="pb-1"><strong>Basic Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label for="serviceNo">Service No.</label>
+                  <p class="fw-bold">None</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label for="surveyNo">Survey No.</label>
+                  <p class="fw-bold"></p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h5 class="pt-2"><strong>Consumer Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="wardNo">Ward No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">2</p>
+                </div>                       
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="consumerNo">Consumer No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">ADV512345</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h5 class="pt-2"><strong>Firm Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="firmName">Firm Name<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">ABC Enterprise</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="mobile">Mobile No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">9876543210</p>
+                </div>
+              </div>                      
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="mobile">Shop Area<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">160.50</p>
+                </div>
+              </div>                      
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="mobile">Firm Address<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Shop No. 21, Jan Path, near SBI Bank, Malviya Nagar, Jaipur</p>
+                </div>
+              </div>                      
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="landmark">Landmark<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Jan Path Circle</p>
+                </div>
+              </div>                      
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="city">City<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Jaipur</p>
+                </div>
+              </div>                      
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="pincode">Pin Code<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">302001</p>
+                </div>
+              </div>                      
+            </div>
+            <div>
+              <h5 class="pt-2"><strong>Demand Details</strong></h5>
+                <div class="table-responsive">
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr class="text-center">
+                        <th>Year</th>
+                        <th>Hoarding Type</th>
+                        <th>Store Code</th>
+                        <th>Location</th>
+                        <th>Hoarding Area</th>
+                        <th>Rate</th>
+                        <th>Total Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>2022-23</td>
+                        <td>Regular Board</td>
+                        <td>G-01</td>
+                        <td>Jan Path Circle</td>
+                        <td>160.30</td>
+                        <td>3326.00</td>
+                        <td class="text-end">533157.80</td>
+                      </tr>
+                      <tr class="text-center">
+                        <td>2023-24</td>
+                        <td>Neon Board</td>
+                        <td>G-01</td>
+                        <td>Jan Path Circle</td>
+                        <td>204.00</td>
+                        <td>3659.00</td>
+                        <td class="text-end">746436.00</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="6" class="text-start fw-bold">Total Tax</td>
+                        <td class="fw-bold text-end">12,79,593.80</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+            </div>
+            <div class="row">
+              <h5 class="pt-2"><strong>Payment Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="paidAmount">Paid Amount<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">50369.72</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="paymentMode">Payment Mode<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">CHEQUE</p>
+                </div>
+              </div>                      
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="transactionDate">Transaction Date<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">20-08-2026</p>
+                </div>
+              </div>                      
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="transactionNo">Transaction No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">ADCT82202151</p>
+                </div>
+              </div>                      
+            </div>
+            <div>
+              <h5 class="pt-2"><strong>Advertisement Documents</strong></h5>
+                <div class="table-responsive">
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr class="text-center">
+                        <th>Date Time</th>
+                        <th>File Type</th>
+                        <th>View</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>02-06-26 11:43:59 AM</td>
+                        <td>DOCUMENT</td>
+                        <td>
+                          <a href="#"><button class="btn btn-info btn-sm my-1" onclick="openModal('image', 'static/images/documents/sample_image.jpg')"><i class="ri-image-line"></i>View</button></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div>
+              <h5 class="pt-2"><strong>Geotagging Images</strong></h5>
+                <div class="table-responsive">
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr class="text-center">
+                        <th>Front Side Image</th>
+                        <th>Left Side Image</th>
+                        <th>Right Side Image</th>
+                        <th>Latitiude</th>
+                        <th>Longitude</th>
+                        <th>View Map</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>
+                          <a href="#"><button class="btn btn-secondary btn-sm my-1" onclick="openModal('image', 'static/images/documents/sample_image.jpg')"><i class="ri-image-line"></i>Front</button></a>
+                        </td>
+                        <td>
+                          <a href="#"><button class="btn btn-secondary btn-sm my-1" onclick="openModal('image', 'static/images/documents/sample_image.jpg')"><i class="ri-image-line"></i>Left</button></a>
+                        </td>
+                        <td>
+                          <a href="#"><button class="btn btn-secondary btn-sm my-1" onclick="openModal('image', 'static/images/documents/sample_image.jpg')"><i class="ri-image-line"></i>Right</button></a>
+                        </td>
+                        <td>26.8954894300</td>
+                        <td>75.7952166600</td>
+                        <td>
+                          <a href="#"><button class="btn btn-warning btn-sm my-1" onclick="openModal('image', 'static/images/documents/sample_image.jpg')"><i class="ri-road-map-line"></i>Map</button></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div>
+              <h5 class="py-2"><strong>Remarks History</strong></h5>
+                <div>
+                  <ol class="activity-feed">
+                    <li class="feed-item feed-item-info">
+                      <time class="date" datetime="9-23">08-10-2020 06:41:35 AM</time>
+                      <div class="row">
+                        <p class="col-lg-3 col-md-3 col-sm-6">
+                          <span class="fw-bold">JITENDRA MEENA</span>
+                          <br>
+                          <small>Tax Collector</small>
+                        </p>
+                        <p class="col-lg-4 col-md-4 col-sm-6">
+                          <span class="fw-bold">Survey Done</span>
+                          <br>
+                          <small class="text-secondary">08-10-2020 06:41:35 AM</small>
+                        </p>
+                        <p class="col-lg-5 col-md-5 col-sm-6 fw-bold">
+                          <span class="text-danger">Not Uploaded</span>
+                          <span class="text-danger" style="font-size: 1.3rem;"><i class="ri-file-3-line"></i></span>
+                        </p>
+                      </div>
+                    </li>
+                    <li class="feed-item feed-item-info">
+                      <time class="date" datetime="9-23">20-12-2022 11:32:38 AM</time>
+                      <div class="row">
+                        <p class="col-lg-3 col-md-3 col-sm-6">
+                          <span class="fw-bold">ROHIT SINGH</span>
+                          <br>
+                          <small>Flying Officer SSPL</small>
+                        </p>
+                        <p class="col-lg-4 col-md-4 col-sm-6">
+                          <span class="fw-bold">OK</span>
+                          <br>
+                          <small class="text-secondary">20-12-2022 11:32:38 AM</small>
+                        </p>
+                        <p class="col-lg-5 col-md-5 col-sm-6 fw-bold">
+                          <span class="text-info">Document Uploaded</span>
+                          <br>
+                          <a href="#"><button class="btn btn-info btn-sm my-1" onclick="openModal('image', 'static/images/documents/sample_image.jpg')"><i class="ri-file-3-line"></i> View</button></a>
+                        </p>
+                      </div>
+                    </li>
+                  </ol>
+                </div>                        
+            </div>
+            <div class="row">
+              <h5 class="pt-2"><strong>Your Remarks</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="docupload">Document Upload</label>
+                  <input type="file" class="form-control" id="docupload" name="docupload">
+                </div>                     
+              </div>
+              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-6 col-12">
+                <div class="form-group">
+                  <label for="yourRemarks">Your Remarks</label>
+                  <textarea class="form-control" name="yourRemarks" id="yourRemarks" cols="20" rows="4" placeholder="Type your remarks here.."></textarea>
+                </div>
+              </div>                   
+            </div>
+            <div class="d-print-none">
+                <p class="text-center pt-2">
+                  <a href="#"><button type="submit" class="btn btn-info btn-sm mb-1" name="submit"><strong>Geotagging</strong></button></a>
+                  <a href="#"><button type="submit" class="btn btn-secondary btn-sm mb-1" name="submit"><strong>Check and Hold</strong></button></a>
+                  <a href="#"><button type="submit" class="btn btn-primary btn-sm mb-1" name="submit"><strong>Forward</strong></button></a>
+                  <a href="#"><button type="submit" class="btn btn-warning btn-sm mb-1" name="submit"><strong>Send Back</strong></button></a>
+                </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
+
+        $("#multi-filter-select").DataTable({
+          pageLength: 10,
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $(
+                  '<select class="form-select"><option value=""></option></select>'
+                )
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
+
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
+
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 10,
+        });
+  });
+
+    function exportExcel() {
+        let table = $('#basic-datatables').DataTable();
+        let data = table.rows({ search: 'applied' }).data().toArray();
+        let ws = XLSX.utils.aoa_to_sheet([
+            table.columns().header().toArray().map(th => th.innerText),
+            ...data
+        ]);
+        let wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+        XLSX.writeFile(wb, "data.xlsx");
+    }
+
+    let scale = 1;
+      const step = 0.2;
+      const minScale = 0.5;
+      const maxScale = 4;
+      let isFullscreen = false;
+
+      function openModal(type, fileUrl) {
+        const container = document.getElementById('fileContainer');
+        const zoomControls = document.getElementById('zoomControls');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+        scale = 1;
+        container.innerHTML = '';
+        zoomControls.classList.add('d-none');
+        fullscreenBtn.classList.add('d-none');
+
+        if (type === 'image') {
+          zoomControls.classList.remove('d-none');
+          fullscreenBtn.classList.remove('d-none');
+
+          container.innerHTML = `
+            <img id="previewImage"
+                src="${fileUrl}"
+                class="img-fluid"
+                style="transform:scale(1); transition:transform .15s ease; cursor:zoom-in; user-select: none;">
+          `;
+
+          enableImageInteractions();
+        }
+
+        if (type === 'pdf') {
+          
+          container.innerHTML = `
+            <iframe src="${fileUrl}"
+                    style="width:100%; height:100%; border:none;">
+            </iframe>
+          `;
+        }
+
+        new bootstrap.Modal(document.getElementById('fileModal')).show();
+      }
+
+
+      function zoomIn() {
+        if (scale < maxScale) scale += step;
+        applyZoom();
+      }
+
+      function zoomOut() {
+        if (scale > minScale) scale -= step;
+        applyZoom();
+      }
+
+      function resetZoom() {
+        scale = 1;
+        applyZoom();
+      }
+
+      function applyZoom() {
+        const img = document.getElementById('previewImage');
+        if (img) {
+          img.style.transform = `scale(${scale})`;
+        }
+      }
+
+      function enableImageInteractions() {
+        const img = document.getElementById('previewImage');
+        const container = document.getElementById('fileContainer');
+
+        img.addEventListener('wheel', function (e) {
+          e.preventDefault();
+          e.deltaY < 0 ? zoomIn() : zoomOut();
+        });
+
+        img.addEventListener('dblclick', function () {
+          scale = scale === 1 ? 2 : 1;
+          applyZoom();
+        });
+      }
+
+      function toggleFullscreen() {
+        const modalContent = document.querySelector('#fileModal .modal-content');
+
+        if (!document.fullscreenElement) {
+          modalContent.requestFullscreen();
+          isFullscreen = true;
+        } else {
+          document.exitFullscreen();
+          isFullscreen = false;
+        }
+      }
+
+      document.getElementById('fileModal')
+        .addEventListener('hidden.bs.modal', () => {
+          document.getElementById('fileContainer').innerHTML = '';
+          scale = 1;
+          if (document.fullscreenElement) {
+            document.exitFullscreen();
+          }
+        });
+</script>
+{% endblock %}
