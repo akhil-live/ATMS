@@ -1,0 +1,187 @@
+{% extends 'baseAuthority.html' %}
+{% load static %}
+
+{% block title %}ATMS Advertisement Demand{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Advertisement Demand</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-12">
+        <div class="card card-stats card-round">
+          <div class="card-body">
+            
+            <div class="row" style="width:200mm;height:auto;margin:auto; border:#080074 dotted 2px;padding:8px;" id="printableArea">
+              <div class="table-responsive demandPrintView" style="width:100%; background:#FFFFFF; padding: 1px;">
+                <table class="display table table-borderless" width="100%">
+                  <tbody>
+                    <tr>
+                      <td style="padding: 0px;">
+                        <div style="float:left; width:100px; padding:1px;  text-align:left; ">
+                          <img src="{% static 'images/logo/ulb_logo.png' %}" alt="ULB Logo" width="100">
+                        </div>
+                        <div style="float:right; text-align:right; width:160px; padding:1px;   ">
+                          <img src="{% static 'images/logo/swachh_bharat.jpg' %}" alt="Logo" width="160" style="margin-top:10px;margin-bottom: 0px;">
+                        </div>
+                        <div class="text-center" style=" text-align:center; color:#003B5D; line-height:28px;  padding-top:5px; margin: auto;">
+                          <span style="font-weight:bold; font-size:26px">नगर निगम</span>
+                        <br>
+                        <span style="font-size:20px; font-weight:bold;">विज्ञापन शुल्क</span>
+                        <br>
+                        <span style="font-size:14px">( नगरपालिका अधिनियम, 2009 की धारा 128-129 के अन्तर्गत )</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div style="padding:8px; border:#080074 solid 6px; margin-bottom:10px;">
+                  <div style="font-size: 0.813rem;">
+                    <span class="fw-bold">Date: <span class="fw-bold">22/08/2026 11:07 a.m.</span></span>
+                  </div>
+                  <table class="display table table-bordered" width="100%">
+                    <tbody>
+                      <tr style="border-top: 1px solid #abafb9">
+                        <td class="fw-bold">उपभोक्ता संख्या(Consumer No.)</td>
+                        <td class="fw-bold">ADV26579854231</td>
+                        <td class="fw-bold">मोबाइल न.(Mobile No.)</td>
+                        <td class="fw-bold">9876543210</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">वार्ड क्र. (Ward No.)</td>
+                        <td colspan="3" class="fw-bold">4</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">फर्म का नाम (Firm Name)</td>
+                        <td class="fw-bold">XYZ Enterpise Solutions</td>
+                        <td class="fw-bold">दुकान क्षेत्र(Shop Area)</td>
+                        <td class="fw-bold">1000.00</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">फर्म का पता (Firm Address)</td>
+                        <td class="fw-bold" colspan="3">Plot No. 165, RAJ.HIGH.SCHOOL KE SAMNE MAIN SIKAR ROAD HARMADA GAON HARMADA 302032</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">मद</td>
+                        <td class="fw-bold" colspan="3">ADVERTISEMENT FEE</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>                        
+                <div>
+                  <strong style="font-size:13px" >Advertisement Details:</strong>
+                  <table class="display table table-bordered" width="100%">
+                    <tbody>
+                      <tr class="text-center" style="border-top: 1px solid #abafb9">
+                        <td class="fw-bold">SI No.</td>
+                        <td class="fw-bold">Year</td>
+                        <td class="fw-bold">Hoarding Type</td>
+                        <td class="fw-bold">Store Code</td>
+                        <td class="fw-bold">Location</td>
+                        <td class="fw-bold">Hoarding Area (in Sq. Ft.)</td>
+                        <td class="fw-bold">Rate</td>
+                        <td class="fw-bold">Total Amount</td>
+                        <td class="fw-bold">Balance Amount</td>
+                      </tr>
+                      <tr class="text-center">
+                        <td class="fw-bold">1.</td>
+                        <td class="fw-bold">2023-2024</td>
+                        <td class="fw-bold">Regular Board</td>
+                        <td class="fw-bold">G-01</td>
+                        <td class="fw-bold">Jan Path Circle</td>
+                        <td class="fw-bold">204.00</td>
+                        <td class="fw-bold">3659.00</td>
+                        <td class="fw-bold">746436.00</td>
+                        <td class="fw-bold">746436.00</td>
+                      </tr>
+                      <tr>
+                        <td colspan="9"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="8" class="text-start fw-bold">Total Tax (₹)</td>
+                        <td class="text-center fw-bold">746436.00</td>
+                      </tr>
+                      <tr>
+                        <td colspan="8" class="text-start fw-bold">Net Payable (₹)</td>
+                        <td class="text-center fw-bold">746436.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div>
+                  <table class="display table table-bordered" width="100%">
+                    <tbody>
+                      <tr style="border-top: 1px solid #abafb9">
+                        <td colspan="3" style="padding: 5px 10px 20px 10px !important;">
+                          <span class="fw-bold">नोट:</span>
+                          <ol>
+                            <li>यह विज्ञापन शुल्क सूचना/बिल कार्यालय रिकार्ड के अनुसार प्रेषित किया जा रहा है।</li>
+                            <li>यदि आपके द्वारा इस बिल में दर्शायी किसी राशि का भुगतान पूर्व में किया जा चुका हो तो मूल रसीद एवं उसकी एक फोटोकाॅपी सहित नगर निगम की ADV Fee शाखा में सम्पर्क करें।</li>
+                            <li>विज्ञापन शुल्क का बिल स्वामित्व के साक्ष्य के लिए मान्य नहीं होगा |</li>
+                            <li><strong>For any query dial Toll Free Number : 1800-123-4567</strong></li>
+                            <li>उक्त बिल के संबंध मैं यदि संपत्ति धारक / अधिभोगी को किसी प्रकार की आपत्ति है तो 15 दिवस के भीतर निगम मुख्यालय या संबंधित ज़ोन कार्यालय मैं आपत्ति दर्ज करवा सकते है ।</li>
+                          </ol>
+                        </td>
+                        <td style="padding: 5px 10px 20px 10px !important;">
+                          <div style="width:140px; height:140px; border:solid 1px #333" id="qrcode-scan">
+                            <img src="{% static 'images/qr/sampleqr.png' %}" alt="QR Code" width="140" height="140">
+                            <span class="text-center">*Scan to pay online</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="4">
+                          <table class="display table table-borderless" width="100%" style="margin-bottom: 0.5rem;">
+                            <tbody>
+                              <tr class="text-center">
+                                <td width="33%" style="border-bottom: 0px;">
+                                  राजस्व अधिकारी
+                                  <br>
+                                  (कम्प्यूटर से जारी हस्ताक्षर आवश्यक नहीं)	
+                                </td>
+                                <td width="33%" style="border-bottom: 0px;">
+                                  भूल-चूक लेनी देनी
+                                </td>
+                                <td width="33%" style="border-bottom: 0px;">
+                                  सम्पत्ति स्वामी/अधिभोगी के हस्ताक्षर एवं नाम
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+
+            </div>
+          </div>
+            <div class="d-print-none">
+                <p class="text-center pt-2">
+                    <button type="submit" class="btn btn-info btn-sm" onclick="printTable('printableArea')"><strong><i class="ri-printer-line"></i> Print</strong></button>
+                </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function printTable(areaID) 
+    {
+        var printContent = document.getElementById(areaID).innerHTML;
+        var originalContent = document.body.innerHTML;
+        document.body.innerHTML = printContent;
+        window.print();
+        document.body.innerHTML = originalContent;
+    }
+</script>
+{% endblock %}
