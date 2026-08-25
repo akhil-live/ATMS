@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}ATMS Advertisement Survey Report{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Advertisement Survey Report</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header d-print-none">
+            <a href="{% url 'survey' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="startDate">Start Date<i class="ri-asterisk"></i></label>
+                  <input type="date" class="form-control" id="startDate" name="startDate" value="2026-08-23" required="">
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="endDate">End Date<i class="ri-asterisk"></i></label>
+                  <input type="date" class="form-control" id="endDate" name="endDate" value="2026-08-23" required="">
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="surveyNo">ADV Survey No.</label>
+                  <input type="text" class="form-control" id="surveyNo" placeholder="Enter survey number">                          
+                </div>
+              </div>
+            </div>
+            <div class="col-12 py-4 text-center">
+              <button type="submit" class="btn btn-primary btn-sm" name="submit" id="orSearch"><i class="fa fa-search"></i> Search</button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive" id="printableArea">
+              <div class="d-print-none">
+                <p class="text-start">
+                    <button type="submit" class="btn btn-success btn-sm" name="submit" id="exportExcel" onclick="exportExcel()"><strong><i class="ri-file-excel-line"></i> Export Excel</strong></button>
+                </p>
+              </div>
+              <table id="basic-datatables" class="display table table-hover table-bordered table-head-bg-light">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>ADV Survey No.</th>
+                    <th>Ward No.</th>
+                    <th>Area Name</th>
+                    <th>Firm Name</th>
+                    <th>Mobile No.</th>
+                    <th>Firm Address</th>
+                    <th>Survey On</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>ADVS14043801</td>
+                    <td>83</td>
+                    <td>KRISHNA NAGAR-B-Tonk road</td>
+                    <td>ABC Enterpise Solutions</td>
+                    <td>1234567890</td>
+                    <td>12 krishna nagar nehru path lal khothi jaipur</td>
+                    <td>04-05-2026</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+  $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
+
+        $("#multi-filter-select").DataTable({
+          pageLength: 10,
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $(
+                  '<select class="form-select"><option value=""></option></select>'
+                )
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
+
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
+
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 10,
+        });
+  });
+
+    function exportExcel() {
+        let table = $('#basic-datatables').DataTable();
+        let data = table.rows({ search: 'applied' }).data().toArray();
+        let ws = XLSX.utils.aoa_to_sheet([
+            table.columns().header().toArray().map(th => th.innerText),
+            ...data
+        ]);
+        let wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+        XLSX.writeFile(wb, "data.xlsx");
+    }
+</script>
+{% endblock %}

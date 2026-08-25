@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}ATMS Advertisement Survey Geotagging List{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">ADV Survey Geotagging List</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header d-print-none">
+              <a href="{% url 'search-adv-geotagging' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive" id="printableArea">
+              <table id="basic-datatables" class="display table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Ward No.</th>
+                    <th>Area Name</th>
+                    <th>ADV Survey No.</th>
+                    <th>Firm Name</th>
+                    <th>Mobile No.</th>
+                    <th>Shop Code</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>83</td>
+                    <td>KRISHNA NAGAR-B-Tonk road</td>
+                    <td>ADVS2142194</td>
+                    <td>DELL</td>
+                    <td>1234567890</td>
+                    <td>12</td>
+                    <td>krishna nagar nehru path lal khothi jaipur</td>
+                    <td><a href="{% url 'adv-geo-tagging-update' %}"><button class="btn btn-info btn-xs my-1">View</button></a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+  $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
+
+        $("#multi-filter-select").DataTable({
+          pageLength: 10,
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $(
+                  '<select class="form-select"><option value=""></option></select>'
+                )
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
+
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
+
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 10,
+        });
+  });
+</script>
+{% endblock %}

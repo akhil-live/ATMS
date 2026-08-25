@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}ATMS Advertisement View{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Advertisement View</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+            <a href="{% url 'adv-list' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <h5 class="pb-1"><strong>Basic Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label for="serviceNo">Service No.</label>
+                  <p class="fw-bold">None</p>
+                </div>
+              </div>
+              <div>
+                <p style="padding:5px 0px 0px 15px" class="text-danger text-start">OR</p>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label for="surveyNo">Survey No.</label>
+                  <p class="fw-bold">512345</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h5 class="pt-2"><strong>Firm Area Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="wardNo">Ward No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">2</p>
+                </div>                       
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="shopArea">Shop Area (in Sq.ft)<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">1200</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h5 class="pt-2"><strong>Firm Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="firmName">Firm Name<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">ABC Enterprise</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="mobile">Mobile No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">9876543210</p>
+                </div>
+              </div>                      
+            </div>
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="firmAddress">Firm Address<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Shop No. 21, Jan Path, near SBI Bank, Malviya Nagar, Jaipur</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="pincode">Pin Code<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">302001</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h5 class="pt-2"><strong>Advertisement Details</strong></h5>
+                <div class="table-responsive">
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr class="text-center">
+                        <th>Board Type</th>
+                        <th>Hoarding Type</th>
+                        <th>Store Code</th>
+                        <th>Location</th>
+                        <th>Length (in Ft.)</th>
+                        <th>Breadth (in Ft.)</th>
+                        <th>Financial Year</th>
+                        <th>Rate Type</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>3D Letter Boards</td>
+                        <td>Backlit/Frontlit Hoardings</td>
+                        <td>ST/01/21</td>
+                        <td>Jan Path, near SBI Bank, Malviya Nagar</td>
+                        <td>50</td>
+                        <td>20</td>
+                        <td>2025-2026</td>
+                        <td>Flat Rate</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div class="d-print-none">
+                <p class="text-center pt-2">
+                  <button type="submit" class="btn btn-info btn-sm" name="submit"><strong>Update Ward</strong></button>
+                  <button type="submit" class="btn btn-success btn-sm" name="submit"><strong>Demand Print</strong></button>
+                  <button type="submit" class="btn btn-primary btn-sm" name="submit"><strong>Pay ADV Tax</strong></button>
+                </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

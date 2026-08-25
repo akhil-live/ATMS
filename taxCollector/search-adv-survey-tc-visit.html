@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}ATMS Search Advertisement TC Visit{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Search ADV TC Visit</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'survey' %}">
+            Survey
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Search ADV TC Visit</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header d-print-none">
+            <a href="{% url 'survey' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+
+          <div class="card-body">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="surveyNo">ADV Survey No.<i class="ri-asterisk"></i></label>
+                    <input type="text" class="form-control" id="surveyNo" placeholder="Enter survey number">                          
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 py-3 ps-3 text-start">
+                  <a href="{% url 'adv-survey-visit-details' %}"><button type="submit" class="btn btn-primary btn-sm" name="submit" id="orSearch"><i class="fa fa-search"></i> Search</button></a>
+              </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
