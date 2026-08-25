@@ -1,0 +1,90 @@
+{% extends 'baseAuthority.html' %}
+{% load static %}
+
+{% block title %}ATMS Update GST Details{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Update GST Details</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+            <a href="#"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <h5 class="pt-2"><strong>Firm Area Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="wardNo">Ward No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">2</p>  
+                </div>                       
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="shopArea">Shop Area (in Sq.ft)<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">1200</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="consumerNo">Consumer No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">ADV2410202553257</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h5 class="pt-2"><strong>Firm Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="firmName">Firm Name<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">ABC Enterprise</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="mobile">Mobile No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">9876543210</p>
+                </div>
+              </div>                      
+            </div>
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="firmAddress">Firm Address<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Shop No. 21, Jan Path, near SBI Bank, Malviya Nagar, Jaipur</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="pincode">Pin Code<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">302001</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h5 class="pt-2"><strong>GST Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="gst">GST No.<i class="ri-asterisk"></i></label>
+                  <input type="text" id="gst" name="gst" class="form-control" placeholder="Enter gst number" required>
+                </div>                      
+              </div>
+            </div>
+            <div class="d-print-none">
+                <p class="text-center pt-2">
+                   <button type="submit" class="btn btn-success btn-sm" name="submit"><strong>Update</strong></button>
+                </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

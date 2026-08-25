@@ -1,0 +1,205 @@
+{% extends 'baseAuthority.html' %}
+{% load static %}
+
+{% block title %}ATMS Advertisement Pay{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Advertisement Payment</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+            <a href="#"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <h5 class="pt-2"><strong>Firm Area Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="wardNo">Ward No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">2</p>  
+                </div>                       
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="shopArea">Shop Area (in Sq.ft)<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">1200</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="consumerNo">Consumer No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">ADV2410202553257</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h5 class="pt-2"><strong>Firm Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="firmName">Firm Name<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">ABC Enterprise</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="mobile">Mobile No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">9876543210</p>
+                </div>
+              </div>                      
+            </div>
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="firmAddress">Firm Address<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Shop No. 21, Jan Path, near SBI Bank, Malviya Nagar, Jaipur</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="pincode">Pin Code<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">302001</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h5 class="pt-2"><strong>Demand Details</strong></h5>
+                <div class="table-responsive">
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr class="text-center">
+                        <th>Financial Year</th>
+                        <th>Hoarding Type</th>
+                        <th>Store Code</th>
+                        <th>Location</th>
+                        <th>Hoarding Area</th>
+                        <th>Rate</th>
+                        <th>Total Basic Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>2025-2026</td>
+                        <td>Regular Board</td>
+                        <td>ST/01/21</td>
+                        <td>Silver square Mall</td>
+                        <td>70.00 Sq ft.</td>
+                        <td>505.42</td>
+                        <td>35379.40</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr class="text-center">
+                        <td colspan="6" class="text-end"><strong>Total</strong></td>
+                        <td><strong>35379.40</strong></td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+            </div>
+            <div>
+              <h5 class="pt-2"><strong>Payment Details</strong></h5>
+              <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="amountPayable">Amount Payable<i class="ri-asterisk"></i></label>
+                     <input type="text" id="amountPayable" name="amountPayable" class="form-control" placeholder="Enter amount payable" required="">
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="paymentMode">Payment mode<i class="ri-asterisk"></i></label>
+                      <select class="form-select" id="paymentMode" name="paymentMode" required="">
+                        <option value="">Select pay mode</option>
+                        <option value="">CHEQUE</option>
+                        <option value="">DEMAND DRAFT</option>
+                        <option value="">CARD</option>
+                        <option value="">RTGS</option>
+                        <option value="">IMPS</option>
+                        <option value="">UPI</option>
+                      </select>    
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="refNo">Reference No.<i class="ri-asterisk"></i></label>
+                     <input type="text" id="refNo" name="refNo" class="form-control" placeholder="Enter reference no." required="">
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="refDate">Reference Date<i class="ri-asterisk"></i></label>
+                    <input type="date" class="form-control" id="refDate" name="refDate" required="">
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="branchName">Branch Name<i class="ri-asterisk"></i></label>
+                     <input type="text" id="branchName" name="branchName" class="form-control" placeholder="Enter branch name" required="">
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="bankName">Bank Name<i class="ri-asterisk"></i></label>
+                     <input type="text" id="bankName" name="bankName" class="form-control" placeholder="Enter bank name" required="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="cardNo">Card No.<i class="ri-asterisk"></i></label>
+                     <input type="text" id="cardNo" name="cardNo" class="form-control" placeholder="Enter card no." required="">
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="cardHolderName">Card Holder Name<i class="ri-asterisk"></i></label>
+                     <input type="text" id="cardHolderName" name="cardHolderName" class="form-control" placeholder="Enter card holder name" required="">
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="cardType">Card Type<i class="ri-asterisk"></i></label>
+                      <select class="form-select" id="cardType" name="cardType" required="">
+                        <option value="">Select card type</option>
+                        <option value="">Debit Card</option>
+                        <option value="">Credit Card</option>
+                      </select>    
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="uploadImage">Upload Image<i class="ri-asterisk"></i></label>
+                    <input type="file" class="form-control mb-2" id="uploadImage" name="uploadImage">
+                  </div>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="yourRemarks">Remarks<i class="ri-asterisk"></i></label>
+                    <textarea class="form-control" name="yourRemarks" id="yourRemarks" cols="20" rows="4" placeholder="Type your remarks here.."></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-print-none">
+                <p class="text-center pt-2">
+                   <button type="submit" class="btn btn-success btn-sm" name="submit"><strong>Pay Now</strong></button>
+                </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

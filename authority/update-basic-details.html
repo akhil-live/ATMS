@@ -1,0 +1,87 @@
+{% extends 'baseAuthority.html' %}
+{% load static %}
+
+{% block title %}ATMS Update Basic Details{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Update Basic Details</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+            <a href="{% url 'survey' %}"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i></i> Back</strong></button></a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <h5 class="pt-2"><strong>Firm Area Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="wardNo">Ward No.<i class="ri-asterisk"></i></label>
+                    <select class="form-select" id="wardNo" name="wardNo" required>
+                      <option value="">Select Ward No.</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                      <option value="">3</option>
+                      <option value="">4</option>
+                   </select>    
+                </div>                       
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="shopArea">Shop Area (in Sq.ft)<i class="ri-asterisk"></i></label>
+                  <input type="number" id="shopArea" name="shopArea" class="form-control" placeholder="Enter Shop Area" required>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="consumerNo">Consumer No.<i class="ri-asterisk"></i></label>
+                  <input type="text" id="consumerNo" name="shopArea" class="form-control" value="ADV2410202553257" disabled required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h5 class="pt-2"><strong>Firm Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="firmName">Firm Name<i class="ri-asterisk"></i></label>
+                   <input type="text" id="firmName" name="firmName" class="form-control" placeholder="Enter firm name" required>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="mobile">Mobile No.<i class="ri-asterisk"></i></label>
+                  <input type="number" id="mobile" name="mobile" class="form-control" placeholder="Enter mobile number" required>
+                </div>
+              </div>                      
+            </div>
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="firmAddress">Firm Address<i class="ri-asterisk"></i></label>
+                  <textarea id="firmAddress" name="firmAddress" class="form-control" rows="3" cols="20" placeholder="Enter Firm Address" required></textarea>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="pincode">Pin Code<i class="ri-asterisk"></i></label>
+                  <input type="number" id="pincode" name="pincode" class="form-control" placeholder="Enter pin code" required>
+                </div>
+              </div>
+            </div>
+            <div class="d-print-none">
+                <p class="text-center pt-2">
+                   <button type="submit" class="btn btn-success btn-sm" name="submit"><strong>Update</strong></button>
+                </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

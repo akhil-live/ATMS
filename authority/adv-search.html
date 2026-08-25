@@ -1,0 +1,70 @@
+{% extends 'baseAuthority.html' %}
+{% load static %}
+
+{% block title %}ATMS Advertisement Search{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Advertisement Search</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+            ADV Tax
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Advertisement Search</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="wardNo">Ward No.<i class="ri-asterisk"></i></label>
+                      <select class="form-select" id="wardNo" name="wardNo" required>
+                        <option value="">ALL</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                      </select>    
+                  </div>                       
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="consumerNo">Consumer No.</label>
+                    <input type="text" class="form-control" id="consumerNo" placeholder="Enter consumer number">                          
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="firmName">Firm Name</label>
+                    <input type="text" class="form-control" id="firmName" placeholder="Enter firm name">                          
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 py-4 text-center">
+                  <a href="{% url 'adv-list' %}"><button type="submit" class="btn btn-primary btn-sm" name="submit" id="orSearch"><i class="fa fa-search"></i> Search</button></a>
+              </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
