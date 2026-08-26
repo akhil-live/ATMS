@@ -1,0 +1,364 @@
+{% extends 'baseAuthority.html' %}
+{% load static %}
+
+{% block title %}ATMS Update Board Size Details{% endblock %}
+
+{% block content %}
+<div class="modal fade" id="fileModal" tabindex="-1" >
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">File Preview</h5>
+
+        <div class="btn-group me-2 ms-2">
+          <button id="fullscreenBtn" class="btn btn-sm btn-outline-primary d-none" onclick="toggleFullscreen()">
+            <i class="ri-fullscreen-line"></i>
+          </button>
+        </div>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div id="zoomControls" class="mb-2 text-center d-none">
+          <button class="btn btn-sm btn-info" onclick="zoomIn()"><i class="ri-add-line"></i></button>
+          <button class="btn btn-sm btn-info" onclick="zoomOut()"><i class="ri-subtract-line"></i></button>
+          <button class="btn btn-sm btn-secondary" onclick="resetZoom()">Reset</button>
+        </div>
+
+        <div id="fileContainer"
+            style="width:100%; height:75vh; max-height:calc(100vh - 160px); overflow:auto; text-align:center;">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Update Board Size Details</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-stats card-round">
+          <div class="card-body">
+            <div class="row">
+              <h5 class="pt-2"><strong>Basic Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="consumerNo">Consumer No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">ADV231320213349</p>
+                </div> 
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="wardNo">Ward No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">2</p>
+                </div> 
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="shopArea">Shop Area (in Sq.ft)<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">1200</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="gstin">GSTIN<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">27AAACR5055K1Z7</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h5 class="pt-2"><strong>Firm Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="firmName">Firm Name<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">ABC Enterprise</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="mobile">Mobile No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">9876543210</p>
+                </div>
+              </div>                      
+            </div>
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="firmAddress">Firm Address<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Shop No. 21, Jan Path, near SBI Bank, Malviya Nagar, Jaipur</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="landmark">Landmark<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Jan Path Circle</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="city">City<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Jaipur</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="pincode">Pin Code<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">302001</p>
+                </div>
+              </div>
+            </div>  
+            <div>
+              <h5 class="pt-2"><strong>Documents Details</strong></h5>
+                <div class="table-responsive">
+                  <table class="display table table-bordered my-3 table-head-bg-light" width="100%">
+                    <thead>
+                      <tr class="text-center">
+                        <th>Date Time</th>
+                        <th>File Type</th>
+                        <th>View</th>
+                        <th>Status</th>
+                        <th>View Map</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>02-06-26 11:43:59 AM</td>
+                        <td>DOCUMENT</td>
+                        <td>
+                          <a href="#"><button class="btn btn-info btn-sm my-1" onclick="openModal('image', 'static/images/documents/sample_image.jpg')"><i class="ri-image-line"></i>View</button></a>
+                        </td>
+                        <td>Approved</td>
+                        <td>
+                          <a href="#"><button class="btn btn-warning btn-sm my-1" onclick="openModal('image', 'static/images/documents/sample_image.jpg')"><i class="ri-road-map-line"></i>Map</button></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>                  
+            <div>
+              <h5 class="pt-2"><strong>Update Board Size details</strong></h5>
+                <div class="row">
+                  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                    <div class="form-group">
+                      <label for="boardType">Board Type<i class="ri-asterisk"></i></label>
+                        <select class="form-select" id="boardType" name="boardType" required>
+                          <option value="">3D Letter</option>
+                      </select>    
+                    </div>                       
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                    <div class="form-group">
+                      <label for="hoardingType">Hoarding Type<i class="ri-asterisk"></i></label>
+                        <select class="form-select" id="hoardingType" name="hoardingType" required>
+                          <option value="">Regular Board</option>
+                      </select>    
+                    </div>                       
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                    <div class="form-group">
+                      <label for="storeCode">Store Code<i class="ri-asterisk"></i></label>
+                      <input type="text" id="storeCode" name="storeCode" class="form-control" placeholder="Enter Store Code" required disabled>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                    <div class="form-group">
+                      <label for="location">Location<i class="ri-asterisk"></i></label>
+                      <input type="text" id="location" name="location" class="form-control" placeholder="Enter Location" required disabled>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                    <div class="form-group">
+                      <label for="length">Length (in Ft.)<i class="ri-asterisk"></i></label>
+                      <input type="number" id="length" name="length" class="form-control" placeholder="Enter Length" required>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                    <div class="form-group">
+                      <label for="breadth">Breadth (in Ft.)<i class="ri-asterisk"></i></label>
+                      <input type="number" id="breadth" name="breadth" class="form-control" placeholder="Enter Breadth" required>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                    <div class="form-group">
+                      <label for="financialYear">Financial Year<i class="ri-asterisk"></i></label>
+                        <select class="form-select" id="financialYear" name="financialYear" required disabled>
+                          <option value="">2025-2026</option>
+                        </select>    
+                    </div>                       
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                    <div class="form-group">
+                      <label for="rateType">Rate Type<i class="ri-asterisk"></i></label>
+                        <select class="form-select" id="rateType" name="rateType" disabled>
+                          <option value="">Flat rate</option>
+                        </select>    
+                    </div>                       
+                  </div>
+                </div>
+            </div>
+            <div class="d-print-none">
+                <p class="text-center pt-3">
+                  <button type="submit" class="btn btn-success btn-sm" name="submit"><strong>Update</strong></button>
+                </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
+
+        $("#multi-filter-select").DataTable({
+          pageLength: 10,
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $(
+                  '<select class="form-select"><option value=""></option></select>'
+                )
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
+
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
+
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 10,
+        });
+  });
+
+    let scale = 1;
+      const step = 0.2;
+      const minScale = 0.5;
+      const maxScale = 4;
+      let isFullscreen = false;
+
+      function openModal(type, fileUrl) {
+        const container = document.getElementById('fileContainer');
+        const zoomControls = document.getElementById('zoomControls');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+        scale = 1;
+        container.innerHTML = '';
+        zoomControls.classList.add('d-none');
+        fullscreenBtn.classList.add('d-none');
+
+        if (type === 'image') {
+          zoomControls.classList.remove('d-none');
+          fullscreenBtn.classList.remove('d-none');
+
+          container.innerHTML = `
+            <img id="previewImage"
+                src="${fileUrl}"
+                class="img-fluid"
+                style="transform:scale(1); transition:transform .15s ease; cursor:zoom-in; user-select: none;">
+          `;
+
+          enableImageInteractions();
+        }
+
+        if (type === 'pdf') {
+          
+          container.innerHTML = `
+            <iframe src="${fileUrl}"
+                    style="width:100%; height:100%; border:none;">
+            </iframe>
+          `;
+        }
+
+        new bootstrap.Modal(document.getElementById('fileModal')).show();
+      }
+
+
+      function zoomIn() {
+        if (scale < maxScale) scale += step;
+        applyZoom();
+      }
+
+      function zoomOut() {
+        if (scale > minScale) scale -= step;
+        applyZoom();
+      }
+
+      function resetZoom() {
+        scale = 1;
+        applyZoom();
+      }
+
+      function applyZoom() {
+        const img = document.getElementById('previewImage');
+        if (img) {
+          img.style.transform = `scale(${scale})`;
+        }
+      }
+
+      function enableImageInteractions() {
+        const img = document.getElementById('previewImage');
+        const container = document.getElementById('fileContainer');
+
+        img.addEventListener('wheel', function (e) {
+          e.preventDefault();
+          e.deltaY < 0 ? zoomIn() : zoomOut();
+        });
+
+        img.addEventListener('dblclick', function () {
+          scale = scale === 1 ? 2 : 1;
+          applyZoom();
+        });
+      }
+
+      function toggleFullscreen() {
+        const modalContent = document.querySelector('#fileModal .modal-content');
+
+        if (!document.fullscreenElement) {
+          modalContent.requestFullscreen();
+          isFullscreen = true;
+        } else {
+          document.exitFullscreen();
+          isFullscreen = false;
+        }
+      }
+
+      document.getElementById('fileModal')
+        .addEventListener('hidden.bs.modal', () => {
+          document.getElementById('fileContainer').innerHTML = '';
+          scale = 1;
+          if (document.fullscreenElement) {
+            document.exitFullscreen();
+          }
+        });
+</script>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'baseAuthority.html' %}
+{% load static %}
+
+{% block title %}ATMS Advertisement Deactivate{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Advertisement Deactivate</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-stats card-round">
+          <div class="card-header d-print-none text-start">
+            <a href="#"><button class="btn btn-black btn-sm"><strong><i class="ri-arrow-left-circle-line"></i> Back</strong></button></a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <h5 class="pt-2"><strong>Basic Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="consumerNo">Consumer No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">ADV231320213349</p>
+                </div>                       
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="wardNo">Ward No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">2</p>
+                </div>                       
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="shopArea">Shop Area (in Sq.ft)<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">1200</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="gstin">GSTIN<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">27AAACR5055K1Z7</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h5 class="pt-2"><strong>Firm Details</strong></h5>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="firmName">Firm Name<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">ABC Enterprise</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="mobile">Mobile No.<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">9876543210</p>
+                </div>
+              </div>                      
+            </div>
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="firmAddress">Firm Address<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Shop No. 21, Jan Path, near SBI Bank, Malviya Nagar, Jaipur</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="landmark">Landmark<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Jan Path Circle</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="city">City<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Jaipur</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <div class="form-group">
+                  <label for="pincode">Pin Code<i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">302001</p>
+                </div>
+              </div>
+            </div>  
+            
+            <div class="row">
+              <h5 class="py-2"><strong>Advertisement Deactivate</strong></h5>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                <div class="form-group">
+                  <label for="uploadImage">Upload Document (Optional)</label>
+                  <input type="file" class="form-control mb-2" id="uploadImage" name="uploadImage">
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                <div class="form-group">
+                  <label for="yourRemarks">Remarks<i class="ri-asterisk"></i></label>
+                  <textarea class="form-control" name="yourRemarks" id="yourRemarks" cols="20" rows="4" placeholder="Type your remarks here.."></textarea>
+                </div>
+              </div>
+            </div>
+            
+            <div class="d-print-none">
+                <p class="text-center pt-3">
+                  <button type="submit" class="btn btn-danger btn-sm" name="submit"><strong>Click to Deactivate</strong></button>
+                </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
